@@ -1,7 +1,13 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://src/airplane_v2_L2.123c71795678-4b63-46c4-b2c6-549c45f4c806/11805_airplane_v2_L2.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://src/Scripts/AvionMovimiento.gd" type="Script" id=2]
+[ext_resource path="res://src/airplane_v2_L2.123c71795678-4b63-46c4-b2c6-549c45f4c806/airplane_body_diffuse_v1.jpg" type="Texture" id=3]
+
+[sub_resource type="Skin" id=5]
+
+[sub_resource type="SpatialMaterial" id=6]
+albedo_texture = ExtResource( 3 )
 
 [sub_resource type="CubeMesh" id=1]
 
@@ -27,9 +33,11 @@ far = 8192.0
 script = ExtResource( 2 )
 
 [node name="Plane" type="MeshInstance" parent="Avion"]
-transform = Transform( 0.01, 0, 0, 0, -4.37114e-10, 0.01, 0, -0.01, -4.37114e-10, 0, -5.5777, -13.2438 )
+transform = Transform( 0.01, -1.81899e-12, -6.31317e-12, -5.41789e-13, -4.36557e-10, 0.01, 9.09495e-13, -0.01, -4.32919e-10, -3.72529e-09, -5.5777, -13.2438 )
 mesh = ExtResource( 1 )
+skin = SubResource( 5 )
 skeleton = NodePath("../..")
+material/0 = SubResource( 6 )
 
 [node name="Spatial" type="Spatial" parent="."]
 

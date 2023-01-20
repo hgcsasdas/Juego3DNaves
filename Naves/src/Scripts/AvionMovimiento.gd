@@ -5,7 +5,7 @@ extends Camera
 # EXPORT PARAMS
 #########################
 # speed
-var velocidad = 10
+var velocidad = 50
 var turbo = 0
 # guiñada ~ guiniada (yaw) girar en eje y
 var guiniada_vel = 10
@@ -62,9 +62,7 @@ func girarDer(delta: float) -> void:
 func rotarIzq(delta: float) -> void:
 	if Input.is_action_pressed("virarIzq"):
 		#model.set_rotation(Vector3(-90, -90,90))
-		if rotation_degrees.z < max_giro:
-			giro += 1 * delta
-			print(giro)
+		#if model.rotation_degrees.z < max_giro:
 			model.rotate(Vector3(0, 0, 1), delta)
 		
 func rotarDer(delta: float) -> void:
@@ -73,7 +71,7 @@ func rotarDer(delta: float) -> void:
 
 func turbo() -> void:
 	if Input.is_action_pressed("turbo"):
-		turbo = 5.0
+		turbo = 2.0
 	else:
 		turbo = 1
 
