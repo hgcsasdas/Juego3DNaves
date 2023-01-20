@@ -1,6 +1,6 @@
-extends CollisionShape
+extends Area
 
-var speed : float = 320.0
+var speed : float = 70.0
 var damage: int = 25
 
 
@@ -21,4 +21,8 @@ func destroy():
 
 func _on_Timer_timeout():
 	destroy()
+	pass # Replace with function body.
+
+
+func _on_Laser_body_entered(body):
 	pass # Replace with function body.

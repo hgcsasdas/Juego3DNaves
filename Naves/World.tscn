@@ -39,8 +39,8 @@ skin = SubResource( 5 )
 skeleton = NodePath("../..")
 material/0 = SubResource( 6 )
 
-[node name="Spatial" type="Spatial" parent="Avion/Plane"]
-transform = Transform( 1, 2.32831e-10, 2.01521e-09, 1.04774e-09, 0.999999, -1.86265e-09, -8.13998e-11, 0, 0.999999, 8.34465e-07, 572.818, 101.043 )
+[node name="Position3D" type="Position3D" parent="Avion"]
+transform = Transform( 1, -3.55203e-09, 0, -4.47699e-09, 1, 0, 0, -6.98492e-10, 1, -0.0258507, -4.51831, -19.748 )
 
 [node name="Spatial" type="Spatial" parent="."]
 
