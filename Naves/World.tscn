@@ -33,11 +33,14 @@ far = 8192.0
 script = ExtResource( 2 )
 
 [node name="Plane" type="MeshInstance" parent="Avion"]
-transform = Transform( 0.01, -1.81899e-12, -6.31317e-12, -5.41789e-13, -4.36557e-10, 0.01, 9.09495e-13, -0.01, -4.32919e-10, -3.72529e-09, -5.5777, -13.2438 )
+transform = Transform( 0.01, -2.27374e-12, -6.30429e-12, -5.34683e-13, -4.36557e-10, 0.01, 1.36424e-12, -0.01, -4.29281e-10, -5.58794e-09, -5.5777, -13.2438 )
 mesh = ExtResource( 1 )
 skin = SubResource( 5 )
 skeleton = NodePath("../..")
 material/0 = SubResource( 6 )
+
+[node name="Spatial" type="Spatial" parent="Avion/Plane"]
+transform = Transform( 1, 2.32831e-10, 2.01521e-09, 1.04774e-09, 0.999999, -1.86265e-09, -8.13998e-11, 0, 0.999999, 8.34465e-07, 572.818, 101.043 )
 
 [node name="Spatial" type="Spatial" parent="."]
 

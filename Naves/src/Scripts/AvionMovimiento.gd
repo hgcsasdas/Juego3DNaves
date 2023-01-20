@@ -22,6 +22,8 @@ var tiempo_turbo = 5
 var gravedad = -9.81
 
 onready var model = $Plane
+onready var pivote = get_node("Plane/Spatial")
+onready var laserScene = preload("res://laser.tscn")
 
 func _process(delta: float) -> void:
 	_move(delta, turbo)
@@ -32,11 +34,18 @@ func _process(delta: float) -> void:
 	rotarDer(delta)
 	rotarIzq(delta)
 	turbo()
-
+	disparar()
+	
 #	_pitch(delta)
 #	_yaw(delta)
 
-
+func disparar():
+	if Input.is_action_just_pressed("shoot"):
+		print("asd")
+		var las = laserScene.instance()
+		get_tree().get_root().add_child(las)
+		las.global_transform = pivote.global_transform
+	#las.scale = Vector3.ONE
 #########################
 # MOVEMENT FUNCTIONS
 #########################
