@@ -2,7 +2,7 @@ extends Camera
 
 
 #########################
-# EXPORT PARAMS
+# PARAMETROS MOVIMIENTO AVIÓN
 #########################
 # speed
 var velocidad = 50
@@ -16,15 +16,22 @@ var giro = 1
 var giro_vel = 10
 # inclinar (pitch) inclinación o declinación de los aviones
 var max_inclinacion = 30
-
 var tiempo_turbo = 5
+
+#Interacciones
+
+var vida = 100
 
 var gravedad = -9.81
 
-onready var model = $Plane
-onready var laserScene = preload("res://Laser.tscn")
+
+#Instancias
+onready var model = $Plane_modelo
+onready var laserScene = preload("res://src/Escenas/laser.tscn")
 onready var pivote = get_node("Position3D")
 
+
+#Acciones ejecutadas en cada fotograma
 func _process(delta: float) -> void:
 	_move(delta, turbo)
 	arriba(delta)
@@ -34,26 +41,19 @@ func _process(delta: float) -> void:
 	rotarDer(delta)
 	rotarIzq(delta)
 	turbo()
-	
-#	_pitch(delta)
-#	_yaw(delta)
+	disparar()
 
-	if Input.is_action_pressed("shoot"):
-		print("asd")
-		disparar()
 
 func disparar():
-	"""fallo?"""
-	print("af")
-	var laser = laserScene.instance()
-	var sceneLaser = get_tree().root.get_children()[0]
-	sceneLaser.call_deferred("add_child", laser)
-	laser.parentName = self.name
-	laser.global_transform = pivote.global_transform
+	if Input.is_action_pressed("shoot"):
+		var laser = laserScene.instance()
+		var sceneLaser = get_tree().root.get_children()[0]
+		sceneLaser.call_deferred("add_child", laser)
+		laser.parentName = self.name
+		laser.global_transform = pivote.global_transform
 	#las.scale = Vector3.ONE
-#########################
-# MOVEMENT FUNCTIONS
-#########################
+
+#Funciones de movimiento
 func _move(delta: float, turbo: float) -> void:
 	translation -= transform.basis.z * delta * velocidad * turbo
 
@@ -77,14 +77,18 @@ func rotarIzq(delta: float) -> void:
 	if Input.is_action_pressed("virarIzq"):
 		#model.set_rotation(Vector3(-90, -90,90))
 		#if model.rotation_degrees.z < max_giro:
-			model.rotate(Vector3(0, 0, 1), delta)
+			model.rotate(Vector3(0, 0, 1), delta * 3)
 		
 func rotarDer(delta: float) -> void:
 	if Input.is_action_pressed("virarDer"):
-		model.rotate(Vector3(0, 0, -1),delta)
+		model.rotate(Vector3(0, 0, -1),delta * 3)
 
 func turbo() -> void:
 	if Input.is_action_pressed("turbo"):
-		turbo = 2.0
+		turbo = 5.0
 	else:
 		turbo = 1
+
+
+func _on_Area_body_entered():
+	print("asdasdas")

@@ -2,8 +2,8 @@
 
 importer="texture"
 type="StreamTexture"
-path.s3tc="res://.import/airplane_wings_diffuse_v1.jpg-57e139b9c47f362f683f69760bf9777a.s3tc.stex"
-path.etc2="res://.import/airplane_wings_diffuse_v1.jpg-57e139b9c47f362f683f69760bf9777a.etc2.stex"
+path.s3tc="res://.import/airplane_wings_diffuse_v1.jpg-88ad0dd75b7c5a8332c10ab31ade9a42.s3tc.stex"
+path.etc2="res://.import/airplane_wings_diffuse_v1.jpg-88ad0dd75b7c5a8332c10ab31ade9a42.etc2.stex"
 metadata={
 "imported_formats": [ "s3tc", "etc2" ],
 "vram_texture": true
@@ -11,8 +11,8 @@ metadata={
 
 [deps]
 
-source_file="res://src/airplane_v2_L2.123c71795678-4b63-46c4-b2c6-549c45f4c806/airplane_wings_diffuse_v1.jpg"
-dest_files=[ "res://.import/airplane_wings_diffuse_v1.jpg-57e139b9c47f362f683f69760bf9777a.s3tc.stex", "res://.import/airplane_wings_diffuse_v1.jpg-57e139b9c47f362f683f69760bf9777a.etc2.stex" ]
+source_file="res://src/Models/airplane_v2_L2.123c71795678-4b63-46c4-b2c6-549c45f4c806/airplane_wings_diffuse_v1.jpg"
+dest_files=[ "res://.import/airplane_wings_diffuse_v1.jpg-88ad0dd75b7c5a8332c10ab31ade9a42.s3tc.stex", "res://.import/airplane_wings_diffuse_v1.jpg-88ad0dd75b7c5a8332c10ab31ade9a42.etc2.stex" ]
 
 [params]
 
