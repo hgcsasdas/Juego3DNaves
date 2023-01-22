@@ -79,7 +79,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -210.024 )
 script = ExtResource( 4 )
 
 [node name="Antiaircraft_gun" type="MeshInstance" parent="Area"]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0 )
 mesh = ExtResource( 3 )
+
+[node name="Position3D" type="Position3D" parent="Area/Antiaircraft_gun"]
+transform = Transform( 0.999809, -0.0195638, -6.9582e-05, 0.0195638, 0.999809, -1.4934e-05, 6.98605e-05, 1.35687e-05, 1, -11.3423, 7.53272, 0.452606 )
 
 [node name="Deteccion" type="CollisionShape" parent="Area"]
 transform = Transform( 100, 0, 0, 0, 100, 0, 0, 0, 100, 0, 0, 0 )
