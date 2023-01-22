@@ -26,9 +26,9 @@ var gravedad = -9.81
 
 
 #Instancias
-onready var model = $Plane_modelo
+onready var model = get_node("Kplayer/Plane_modelo")
 onready var laserScene = preload("res://src/Escenas/laser.tscn")
-onready var pivote = get_node("Position3D")
+onready var pivote = get_node("Kplayer/Position3D")
 
 
 #Acciones ejecutadas en cada fotograma
