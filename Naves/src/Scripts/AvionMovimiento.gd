@@ -31,12 +31,12 @@ onready var laserScene = preload("res://src/Escenas/laser.tscn")
 onready var pivote = get_node("Kplayer/Position3D")
 
 var angulo_del_avion
-
+var angulo_del_pepe
 #Acciones ejecutadas en cada fotograma
 func _process(delta: float) -> void:
 	
 	angulo_del_avion = global_rotation 
-	var angulo_del_pepe = model.global_rotation 
+	angulo_del_pepe = model.global_rotation 
 	print(angulo_del_avion)
 	
 	_move(delta, turbo)
@@ -73,26 +73,29 @@ func abajo(delta: float) -> void:
 		
 func girarIzq(delta: float) -> void:
 	if Input.is_action_pressed("girarIzq"):
-		rotation_degrees.y += delta * giro_vel + 0.75
-
-func girarDer(delta: float) -> void:
-	if Input.is_action_pressed("girarDer"):
-		rotation_degrees.y -= delta * giro_vel + 0.75
-		
-func rotarIzq(delta: float) -> void:
-	if Input.is_action_pressed("virarIzq"):
 		#model.set_rotation(Vector3(-90, -90,90))
 		if angulo_del_avion < Vector3(global_rotation.x,global_rotation.y,0.5):
-			rotate(Vector3(0, 0, 1), delta * 3)
+			rotate_z(delta * 3)
 		else:
 			rotation_degrees.y += delta * giro_vel + 0.75
 
-func rotarDer(delta: float) -> void:
-	if Input.is_action_pressed("virarDer"):
+func girarDer(delta: float) -> void:
+	if Input.is_action_pressed("girarDer"):
 		if angulo_del_avion > Vector3(global_rotation.x,global_rotation.y,-0.5):
-			rotate(Vector3(0, 0, -1),delta * 3)
+			rotate_z(delta * -3)
 		else:
 			rotation_degrees.y -= delta * giro_vel + 0.75
+
+		
+		
+#Giros en tonel
+func rotarIzq(delta: float) -> void:
+	if Input.is_action_pressed("virarIzq"):
+		rotate(Vector3(0, 0, 1), delta * 3)
+
+func rotarDer(delta: float) -> void:
+	if Input.is_action_pressed("virarDer"):
+		rotate(Vector3(0, 0, -1), delta * 3)
 
 func turbo() -> void:
 	if Input.is_action_pressed("turbo"):
