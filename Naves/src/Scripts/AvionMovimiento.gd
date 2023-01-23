@@ -5,7 +5,7 @@ extends Camera
 # PARAMETROS MOVIMIENTO AVIÓN
 #########################
 # speed
-var velocidad = 50
+var velocidad = 5
 var turbo = 0
 # guiñada ~ guiniada (yaw) girar en eje y
 var guiniada_vel = 10
@@ -30,9 +30,15 @@ onready var model = get_node("Kplayer/Plane_modelo")
 onready var laserScene = preload("res://src/Escenas/laser.tscn")
 onready var pivote = get_node("Kplayer/Position3D")
 
+var angulo_del_avion
 
 #Acciones ejecutadas en cada fotograma
 func _process(delta: float) -> void:
+	
+	angulo_del_avion = global_rotation 
+	var angulo_del_pepe = model.global_rotation 
+	print(angulo_del_avion)
+	
 	_move(delta, turbo)
 	arriba(delta)
 	abajo(delta)
@@ -76,12 +82,17 @@ func girarDer(delta: float) -> void:
 func rotarIzq(delta: float) -> void:
 	if Input.is_action_pressed("virarIzq"):
 		#model.set_rotation(Vector3(-90, -90,90))
-		#if model.rotation_degrees.z < max_giro:
-			model.rotate(Vector3(0, 0, 1), delta * 3)
-		
+		if angulo_del_avion < Vector3(global_rotation.x,global_rotation.y,0.5):
+			rotate(Vector3(0, 0, 1), delta * 3)
+		else:
+			rotation_degrees.y += delta * giro_vel + 0.75
+
 func rotarDer(delta: float) -> void:
 	if Input.is_action_pressed("virarDer"):
-		model.rotate(Vector3(0, 0, -1),delta * 3)
+		if angulo_del_avion > Vector3(global_rotation.x,global_rotation.y,-0.5):
+			rotate(Vector3(0, 0, -1),delta * 3)
+		else:
+			rotation_degrees.y -= delta * giro_vel + 0.75
 
 func turbo() -> void:
 	if Input.is_action_pressed("turbo"):
