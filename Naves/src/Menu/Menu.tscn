@@ -1,0 +1,38 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://src/Menu/script/ParallaxBackground.tscn" type="PackedScene" id=1]
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="VBoxBotones" type="VBoxContainer" parent="."]
+anchor_left = 0.37
+anchor_top = 0.404
+anchor_right = 0.396
+anchor_bottom = 0.491
+margin_left = -21.0
+margin_top = -22.0
+margin_right = 21.0
+margin_bottom = 22.0
+rect_scale = Vector2( 4.6345, 2.82177 )
+custom_constants/separation = 23
+
+[node name="Jugar" type="Button" parent="VBoxBotones"]
+modulate = Color( 0, 0, 0, 1 )
+margin_right = 68.0
+margin_bottom = 20.0
+custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+text = "Jugar"
+flat = true
+
+[node name="Salir" type="Button" parent="VBoxBotones"]
+margin_top = 43.0
+margin_right = 68.0
+margin_bottom = 63.0
+text = "Salir"
+flat = true
+
+[node name="ParallaxBackground" parent="." instance=ExtResource( 1 )]
