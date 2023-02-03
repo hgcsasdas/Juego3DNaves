@@ -17,6 +17,7 @@ func _process(delta):
 	
 
 	antiaereo.look_at(Vector3(playerPos.x, antiaereo.global_transform.origin.y, playerPos.z), Vector3.UP)
+	pivote.look_at(Vector3(playerPos.x, playerPos.y, playerPos.z), Vector3.UP)
 	#apuntarJugador(delta)
 """"func verificarDistancia():
 	print("sd")
