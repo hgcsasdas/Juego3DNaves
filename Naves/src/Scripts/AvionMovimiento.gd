@@ -1,108 +1,72 @@
-extends Camera
+extends KinematicBody
 
+# Can't fly below this speed
+var min_flight_speed = 50
+# Maximum airspeed
+var max_flight_speed = 200
+# Turn rate
+var turn_speed = 0.75
+# Climb/dive rate
+var pitch_speed = 0.5
+# Wings "autolevel" speed
+var level_speed = 3.0
+# Throttle change speed
+var throttle_delta = 30
+# Acceleration/deceleration
+var acceleration = 100.0
 
-#########################
-# PARAMETROS MOVIMIENTO AVIÓN
-#########################
-# speed
-var velocidad = 5
-var turbo = 0
-# guiñada ~ guiniada (yaw) girar en eje y
-var guiniada_vel = 10
-var max_guiniada = 70
-# girar (roll) poner el avión de lado
-var max_giro = 70.0
-var giro = 1
-var giro_vel = 10
-# inclinar (pitch) inclinación o declinación de los aviones
-var max_inclinacion = 30
-var tiempo_turbo = 5
+# Current speed
+var forward_speed = 0
+# Throttle input speed
+var target_speed = 0
+# Lets us change behavior when grounded
+var grounded = false
 
-#Interacciones
+var velocity = Vector3.ZERO
+var turn_input = 0
+var pitch_input = 0
 
-var vida = 100
+onready var model = get_node("Plane_modelo")
+onready var laser_scene = preload("res://src/Escenas/laser.tscn")
+onready var pivot1 = get_node("Plane_modelo/Position3D")
+onready var pivot2 = get_node("Plane_modelo/Position3D2")
 
-var gravedad = -9.81
-
-
-#Instancias
-onready var model = get_node("Kplayer/Plane_modelo")
-onready var laserScene = preload("res://src/Escenas/laser.tscn")
-onready var pivote = get_node("Kplayer/Position3D")
-
-var angulo_del_avion
-var angulo_del_pepe
-#Acciones ejecutadas en cada fotograma
-func _process(delta: float) -> void:
-	
-	angulo_del_avion = global_rotation 
-	angulo_del_pepe = model.global_rotation 
-	print(angulo_del_avion)
-	
-	_move(delta, turbo)
-	arriba(delta)
-	abajo(delta)
-	girarIzq(delta)
-	girarDer(delta)
-	rotarDer(delta)
-	rotarIzq(delta)
-	turbo()
-	disparar()
-
-
-func disparar():
+func get_input(delta):
+	# Throttle input
+	if Input.is_action_pressed("acelerar"):
+		target_speed = min(forward_speed + throttle_delta * delta, max_flight_speed)
+	if Input.is_action_pressed("decelerar"):
+		target_speed = max(forward_speed - throttle_delta * delta, min_flight_speed)
+	# Turn (roll/yaw) input
+	turn_input = 0
+	turn_input -= Input.get_action_strength("girarDer")
+	turn_input += Input.get_action_strength("girarIzq")
+	# Pitch (climb/dive) input
+	pitch_input = 0
+	pitch_input -= Input.get_action_strength("abajo")
+	pitch_input += Input.get_action_strength("arriba")
 	if Input.is_action_pressed("shoot"):
-		var laser = laserScene.instance()
-		var sceneLaser = get_tree().root.get_children()[0]
-		sceneLaser.call_deferred("add_child", laser)
-		laser.parentName = self.name
-		laser.global_transform = pivote.global_transform
-	#las.scale = Vector3.ONE
-
-#Funciones de movimiento
-func _move(delta: float, turbo: float) -> void:
-	translation -= transform.basis.z * delta * velocidad * turbo
-
-func arriba(delta: float) -> void:
-	if Input.is_action_pressed("arriba"):
-		rotation_degrees.x += delta * giro_vel + 0.75
-
-func abajo(delta: float) -> void:
-	if Input.is_action_pressed("abajo"):
-		rotation_degrees.x -= delta * giro_vel + 0.75
+		shoot()
+	
+func shoot():
+	if Input.is_action_pressed("shoot"):
+		var laser = laser_scene.instance()
+		var scene_laser = get_tree().root.get_children()[0]
+		scene_laser.call_deferred("add_child", laser)
+		#laser.parent_name = self.name
+		laser.global_transform = pivot1.global_transform
+		laser.global_transform = pivot2.global_transform
 		
-func girarIzq(delta: float) -> void:
-	if Input.is_action_pressed("girarIzq"):
-		#model.set_rotation(Vector3(-90, -90,90))
-		if angulo_del_avion < Vector3(global_rotation.x,global_rotation.y,0.5):
-			rotate_z(delta * 3)
-		else:
-			rotation_degrees.y += delta * giro_vel + 0.75
+	
+func _physics_process(delta):
+	get_input(delta)
+	# Accelerate/decelerate
+	forward_speed = lerp(forward_speed, target_speed, acceleration * delta)
+	transform.basis = transform.basis.rotated(transform.basis.x, pitch_input * pitch_speed * delta)
+	transform.basis = transform.basis.rotated(Vector3.UP, turn_input * turn_speed * delta)
+	model.rotation.z = lerp(model.rotation.y, turn_input, level_speed * delta)
 
-func girarDer(delta: float) -> void:
-	if Input.is_action_pressed("girarDer"):
-		if angulo_del_avion > Vector3(global_rotation.x,global_rotation.y,-0.5):
-			rotate_z(delta * -3)
-		else:
-			rotation_degrees.y -= delta * giro_vel + 0.75
-
-		
-		
-#Giros en tonel
-func rotarIzq(delta: float) -> void:
-	if Input.is_action_pressed("virarIzq"):
-		rotate(Vector3(0, 0, 1), delta * 3)
-
-func rotarDer(delta: float) -> void:
-	if Input.is_action_pressed("virarDer"):
-		rotate(Vector3(0, 0, -1), delta * 3)
-
-func turbo() -> void:
-	if Input.is_action_pressed("turbo"):
-		turbo = 5.0
-	else:
-		turbo = 1
-
-
-func _on_Area_body_entered():
-	print("asdasdas")
+	# Movement is always forward
+	velocity = -transform.basis.z * forward_speed
+	velocity = move_and_slide(velocity, Vector3.UP)
+	print(forward_speed)

@@ -2,7 +2,7 @@ extends Area
 
 onready var antiaereo = $Antiaircraft_gun
 onready var raycast = $RayCast
-onready var plane = get_node("../Avion/Kplayer/Position3D")
+onready var plane = get_node("../Plane/Plane_modelo/Position3D")
 onready var laserScene = preload("res://src/Escenas/laserEnemigo.tscn")
 onready var pivote = get_node("Antiaircraft_gun/Position3D")
 
@@ -17,7 +17,7 @@ func _process(delta):
 	
 
 	antiaereo.look_at(Vector3(playerPos.x, antiaereo.global_transform.origin.y, playerPos.z), Vector3.UP)
-	pivote.look_at(Vector3(playerPos.x, playerPos.y, playerPos.z), Vector3.UP)
+	pivote.look_at(Vector3(playerPos.x + 2, playerPos.y + 2, playerPos.z), Vector3.UP)
 	#apuntarJugador(delta)
 """"func verificarDistancia():
 	print("sd")
