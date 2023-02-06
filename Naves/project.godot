@@ -9,12 +9,12 @@
 config_version=4
 
 _global_script_classes=[ {
-"base": "Reference",
+"base": "ResourceFormatLoader",
 "class": "HTerrainDataLoader",
 "language": "GDScript",
 "path": "res://addons/zylann.hterrain/hterrain_resource_loader.gd"
 }, {
-"base": "Reference",
+"base": "ResourceFormatSaver",
 "class": "HTerrainDataSaver",
 "language": "GDScript",
 "path": "res://addons/zylann.hterrain/hterrain_resource_saver.gd"

@@ -98,7 +98,16 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 0
 mesh = ExtResource( 3 )
 
 [node name="Position3D" type="Position3D" parent="Antiaereo/Antiaircraft_gun"]
-transform = Transform( 0.999809, -0.0195638, -6.9582e-05, 0.0195638, 0.999809, -1.4934e-05, 6.98605e-05, 1.35687e-05, 1, -11.3423, 7.53272, 0.452606 )
+transform = Transform( 0.999809, -0.0195638, -6.9582e-05, 0.0195638, 0.999809, -1.4934e-05, 6.98605e-05, 1.35687e-05, 1, -13.4353, 6.68092, -3.42319 )
+
+[node name="Position3D2" type="Position3D" parent="Antiaereo/Antiaircraft_gun"]
+transform = Transform( 0.999809, -0.0195638, -6.9582e-05, 0.0195638, 0.999809, -1.4934e-05, 6.98605e-05, 1.35687e-05, 1, -13.1355, 9.38285, -3.34662 )
+
+[node name="Position3D3" type="Position3D" parent="Antiaereo/Antiaircraft_gun"]
+transform = Transform( 0.999809, -0.0195638, -6.9582e-05, 0.0195638, 0.999809, -1.4934e-05, 6.98605e-05, 1.35687e-05, 1, -13.0085, 9.35054, 3.37345 )
+
+[node name="Position3D4" type="Position3D" parent="Antiaereo/Antiaircraft_gun"]
+transform = Transform( 0.999809, -0.0195638, -6.9582e-05, 0.0195638, 0.999809, -1.4934e-05, 6.98605e-05, 1.35687e-05, 1, -13.5063, 6.69715, 3.36933 )
 
 [node name="Deteccion" type="CollisionShape" parent="Antiaereo"]
 transform = Transform( 300, 0, 0, 0, 300, 0, 0, 0, 300, 0, 0, 0 )
@@ -133,10 +142,10 @@ mesh = SubResource( 12 )
 [node name="Texture Group" type="Spatial" parent="Plane/Plane_modelo"]
 
 [node name="Position3D" type="Position3D" parent="Plane/Plane_modelo"]
-transform = Transform( 1, 0, -0.000872665, 0, 1, 0, 0.000872665, 0, 1, -5.23975, -0.53858, -6.25534 )
+transform = Transform( 1, 0, -0.000872665, 0, 1, 0, 0.000872665, 0, 1, -4.91668, -0.15, -8.582 )
 
 [node name="Position3D2" type="Position3D" parent="Plane/Plane_modelo"]
-transform = Transform( 1, 0, 0.000872665, 0, 1, 0, -0.000872665, 0, 1, 4.63293, -0.268192, -7.13052 )
+transform = Transform( 1, 0, 0.000872665, 0, 1, 0, -0.000872665, 0, 1, 4.85304, -0.149834, -8.58218 )
 
 [node name="Camera" type="Camera" parent="Plane"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.59134, 4.43398 )

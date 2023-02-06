@@ -5,6 +5,9 @@ var damage = 25
 var parentName : String
 var canShoot: bool
 
+var timer
+export var destruccion =  1
+
 
 
 # Called when the node enters the scene tree for the first time.
