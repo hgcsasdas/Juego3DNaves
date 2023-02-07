@@ -90,7 +90,7 @@ surfaces/0 = {
 transform = Transform( 0.10389, -0.207097, -0.972789, 0.0546378, -0.975416, 0.213492, -0.993087, -0.0753307, -0.0900206, 0, 245.486, 328.743 )
 
 [node name="Antiaereo" type="Area" parent="."]
-transform = Transform( 0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 1.66828, -129.628 )
+transform = Transform( -2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 0, 1.66828, -129.628 )
 script = ExtResource( 4 )
 
 [node name="Antiaircraft_gun" type="MeshInstance" parent="Antiaereo"]
@@ -121,7 +121,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 5.77833, 339.95 )
 script = ExtResource( 1 )
 
 [node name="Plane_modelo" type="Spatial" parent="Plane"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0266409, -10.6862 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.541, -10.686 )
 
 [node name="MainHull" type="MeshInstance" parent="Plane/Plane_modelo"]
 transform = Transform( -0.654603, 0, -5.72272e-08, 0, 0.654603, 0, 5.72272e-08, 0, -0.654603, 0, 0, 0 )
@@ -146,6 +146,8 @@ transform = Transform( 1, 0, -0.000872665, 0, 1, 0, 0.000872665, 0, 1, -4.91668,
 
 [node name="Position3D2" type="Position3D" parent="Plane/Plane_modelo"]
 transform = Transform( 1, 0, 0.000872665, 0, 1, 0, -0.000872665, 0, 1, 4.85304, -0.149834, -8.58218 )
+
+[node name="PosicionP" type="Position3D" parent="Plane/Plane_modelo"]
 
 [node name="Camera" type="Camera" parent="Plane"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.59134, 4.43398 )

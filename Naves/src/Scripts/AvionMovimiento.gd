@@ -1,10 +1,10 @@
 extends KinematicBody
 # Can't fly below this speed
-var min_flight_speed = 50
+var min_flight_speed = 0
 # Maximum airspeed
 var max_flight_speed = 200
 # Turn rate
-var turn_speed = 0.75
+var turn_speed = 0.25
 # Climb/dive rate
 var pitch_speed = 0.5
 # Wings "autolevel" speed
@@ -46,16 +46,22 @@ func _ready():
 	timer2.set_one_shot(true)
 	timer2.set_wait_time(cooldown2)
 	timer2.connect("timeout", self, "_cooldownfin2")
+
 func get_input(delta):
 	# Throttle input
 	if Input.is_action_pressed("acelerar"):
 		target_speed = min(forward_speed + throttle_delta * delta, max_flight_speed)
 	if Input.is_action_pressed("decelerar"):
 		target_speed = max(forward_speed - throttle_delta * delta, min_flight_speed)
-	# Turn (roll/yaw) input
 	turn_input = 0
-	turn_input -= Input.get_action_strength("girarDer")
-	turn_input += Input.get_action_strength("girarIzq")
+	if Input.is_action_pressed("girarIzq"):
+		turn_input += 5
+	if Input.is_action_pressed("girarDer"):
+		turn_input -= 5
+	# Turn (roll/yaw) input
+
+	"""turn_input -= Input.get_action_strength("")
+	turn_input += Input.get_action_strength("")"""
 	# Pitch (climb/dive) input
 	pitch_input = 0
 	pitch_input -= Input.get_action_strength("abajo")

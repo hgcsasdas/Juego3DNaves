@@ -2,7 +2,7 @@ extends Area
 
 onready var antiaereo = $Antiaircraft_gun
 onready var raycast = $RayCast
-onready var plane = get_node("../Plane/Plane_modelo/Position3D")
+onready var plane = get_node("../Plane/Plane_modelo/PosicionP")
 onready var laserScene = preload("res://src/Escenas/laserEnemigo.tscn")
 onready var pivote = get_node("Antiaircraft_gun/Position3D")
 onready var pivote2 = get_node("Antiaircraft_gun/Position3D2")
@@ -54,26 +54,24 @@ func _ready():
 	timer4.set_one_shot(true)
 	timer4.set_wait_time(cooldown)
 	timer4.connect("timeout", self, "_cooldownfin4")
-	
-	add_child(timer4)
-	timer4.set_one_shot(true)
-	timer4.set_wait_time(cooldown)
-	timer4.connect("timeout", self, "_cooldownfin4")
 
 func _process(delta):
 	var playerPos = plane.global_transform.origin
 	#print(playerPos)
-	dispararTODO()
 	
-
-	antiaereo.look_at(Vector3(playerPos.x, antiaereo.global_transform.origin.y, playerPos.z), Vector3.UP)
+	
+	antiaereo.look_at(Vector3(playerPos.x -90, antiaereo.global_transform.origin.y, playerPos.z ), Vector3.UP)
 	pivote.look_at(Vector3(playerPos.x + 2, playerPos.y + 2, playerPos.z), Vector3.UP)
+	pivote2.look_at(Vector3(playerPos.x + 2, playerPos.y + 2, playerPos.z), Vector3.UP)
+	pivote3.look_at(Vector3(playerPos.x + 2, playerPos.y + 2, playerPos.z), Vector3.UP)
+	pivote4.look_at(Vector3(playerPos.x + 2, playerPos.y + 2, playerPos.z), Vector3.UP)
+	dispararTODO()
 	#apuntarJugador(delta)
 """"func verificarDistancia():
 	print("sd")
 	if """
 
-	
+
 func apuntarJugador(delta: float) -> void:
 		antiaereo.rotation_degrees.y += delta * 100
 
@@ -97,6 +95,7 @@ func disparar():
 		laser.global_transform = pivote.global_transform
 		canShoot = false
 		timer.start()
+		print("1")
 
 func disparar2():
 	if onRadius && canShoot2:
@@ -108,6 +107,7 @@ func disparar2():
 		laser.global_transform = pivote2.global_transform
 		canShoot2 = false
 		timer2.start()
+		print("2")
 
 func disparar3():
 	if onRadius && canShoot3:
@@ -119,6 +119,7 @@ func disparar3():
 		laser.global_transform = pivote3.global_transform
 		canShoot3 = false
 		timer3.start()
+		print("3")
 
 
 func disparar4():
@@ -131,22 +132,21 @@ func disparar4():
 		laser.global_transform = pivote4.global_transform
 		canShoot4 = false
 		timer4.start()
-
+		print("4")
 
 func _on_Area_body_entered(body):
 	onRadius = true
 	print("entered")
-
 
 func _on_Area_body_exited(body):
 	print("exit")
 	onRadius = false
 
 func _cooldownfin():
-	canShoot3 = true
+	canShoot = true
 
 func _cooldownfin2():
-	canShoot4 = true
+	canShoot2 = true
 
 func _cooldownfin3():
 	canShoot3 = true
