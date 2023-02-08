@@ -60,7 +60,8 @@ func _process(delta):
 	#print(playerPos)
 	
 	
-	antiaereo.look_at(Vector3(playerPos.x -90, antiaereo.global_transform.origin.y, playerPos.z ), Vector3.UP)
+	antiaereo.look_at(Vector3(playerPos.x, antiaereo.global_transform.origin.y, playerPos.z -90 ), Vector3.UP)
+	
 	pivote.look_at(Vector3(playerPos.x + 2, playerPos.y + 2, playerPos.z), Vector3.UP)
 	pivote2.look_at(Vector3(playerPos.x + 2, playerPos.y + 2, playerPos.z), Vector3.UP)
 	pivote3.look_at(Vector3(playerPos.x + 2, playerPos.y + 2, playerPos.z), Vector3.UP)
