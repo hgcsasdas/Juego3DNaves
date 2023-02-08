@@ -150,7 +150,7 @@ transform = Transform( 1, 0, 0.000872665, 0, 1, 0, -0.000872665, 0, 1, 4.85304, 
 [node name="PosicionP" type="Position3D" parent="Plane/Plane_modelo"]
 
 [node name="Camera" type="Camera" parent="Plane"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.59134, 4.43398 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.59134, 39.1062 )
 fov = 61.0
 near = 0.1
 far = 8192.0
