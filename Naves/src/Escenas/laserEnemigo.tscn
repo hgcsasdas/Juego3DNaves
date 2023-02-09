@@ -25,9 +25,10 @@ material/0 = SubResource( 2 )
 transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 5, 0, 0, 0 )
 shape = SubResource( 3 )
 
-[node name="Timer" type="Timer" parent="."]
-process_mode = 0
+[node name="DestroyTimer" type="Timer" parent="."]
+wait_time = 1.5
+autostart = true
 
 [connection signal="area_entered" from="." to="." method="_on_Laser_area_entered"]
 [connection signal="body_entered" from="." to="." method="_on_Laser_body_entered"]
-[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="DestroyTimer" to="." method="_on_DestroyTimer_timeout"]

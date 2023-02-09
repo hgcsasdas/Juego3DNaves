@@ -6,8 +6,7 @@ var parentName : String
 var canShoot: bool
 
 var timer
-export var destruccion =  1
-
+export var destr =  1
 
 
 # Called when the node enters the scene tree for the first time.
@@ -18,14 +17,16 @@ func _physics_process(delta) -> void:
 func _on_Laser_area_entered(area: Area) -> void:
 	if area.has_method("recibirdamage") and area.name !=parentName:
 		area.recibirdamage(damage)
-		queue_free()
-
-
-func _on_Timer_timeout() -> void:
-	queue_free()
-
+		destroy()
 
 func _on_Laser_body_entered(body: Node) -> void:
 	if body.has_method("recibirdamage") and body.name != parentName:
 		body.recibirdamage(damage)
 		queue_free()
+
+func destroy():
+	queue_free()
+
+func _on_DestroyTimer_timeout():
+	destroy()
+	pass # Replace with function body.
