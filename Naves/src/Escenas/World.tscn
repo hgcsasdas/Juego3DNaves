@@ -1,9 +1,14 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://src/Scripts/AvionMovimiento.gd" type="Script" id=1]
 [ext_resource path="res://src/Models/Z-95/Z-95_DIFF.png" type="Texture" id=2]
 [ext_resource path="res://src/Models/antiaircraft-gun/source/Antiaircraft_gun/Antiaircraft_gun.obj" type="ArrayMesh" id=3]
 [ext_resource path="res://src/Scripts/antiaEreo.gd" type="Script" id=4]
+[ext_resource path="res://terrain/data.hterrain" type="Resource" id=5]
+[ext_resource path="res://addons/zylann.hterrain/hterrain_texture_set.gd" type="Script" id=6]
+[ext_resource path="res://addons/zylann.hterrain/hterrain.gd" type="Script" id=7]
+[ext_resource path="res://Textures/World_slot0_albedo_bump.packed_tex" type="Texture" id=8]
+[ext_resource path="res://Textures/World_slot0_normal_roughness.packed_tex" type="Texture" id=9]
 
 [sub_resource type="SphereShape" id=6]
 
@@ -84,6 +89,14 @@ surfaces/0 = {
 
 [sub_resource type="CapsuleShape" id=8]
 
+[sub_resource type="BoxShape" id=14]
+extents = Vector3( 0.204599, 0.15108, 0.190024 )
+
+[sub_resource type="Resource" id=13]
+script = ExtResource( 6 )
+mode = 0
+textures = [ [ ExtResource( 8 ) ], [ ExtResource( 9 ) ] ]
+
 [node name="World" type="Spatial"]
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
@@ -158,6 +171,35 @@ far = 8192.0
 [node name="CollisionShape" type="CollisionShape" parent="Plane"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 4.61112, -0.0232763, -0.434368, -10.8991 )
 shape = SubResource( 8 )
+
+[node name="Ala" type="CollisionShape" parent="Plane"]
+transform = Transform( 21.5454, 0, 0, 0, 0.945499, 0, 0, 0, 4.74415, -0.0115237, -0.664422, -7.4144 )
+shape = SubResource( 14 )
+
+[node name="terreno" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1188.63, 0, -1519.07 )
+
+[node name="terrain" type="Spatial" parent="terreno"]
+transform = Transform( 5, 0, 0, 0, 1, 0, 0, 0, 5, 0, 0, 0 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_lock_": true
+}
+lod_scale = 2.0
+_terrain_data = ExtResource( 5 )
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource( 13 )
+render_layers = 1
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = false
+shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
 [connection signal="body_entered" from="Antiaereo" to="Antiaereo" method="_on_Area_body_entered"]
 [connection signal="body_exited" from="Antiaereo" to="Antiaereo" method="_on_Area_body_exited"]

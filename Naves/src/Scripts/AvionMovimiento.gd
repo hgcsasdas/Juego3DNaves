@@ -1,8 +1,8 @@
 extends KinematicBody
 # Can't fly below this speed
-var min_flight_speed = 0
+var min_flight_speed = 30
 # Maximum airspeed
-var max_flight_speed = 200
+var max_flight_speed = 300
 # Turn rate
 var turn_speed = 0.25
 # Climb/dive rate
@@ -14,9 +14,9 @@ var throttle_delta = 30
 # Acceleration/deceleration
 var acceleration = 100.0
 # Current speed
-var forward_speed = 0
+var forward_speed = 30
 # Throttle input speed
-var target_speed = 0
+var target_speed = 30
 # Lets us change behavior when grounded
 var grounded = false
 var velocity = Vector3.ZERO
@@ -102,7 +102,7 @@ func _physics_process(delta):
 	# Movement is always forward
 	velocity = -transform.basis.z * forward_speed
 	velocity = move_and_slide(velocity, Vector3.UP)
-	print(forward_speed)
+	#print(forward_speed)
 
 func _cooldownfin():
 	canShoot = true
