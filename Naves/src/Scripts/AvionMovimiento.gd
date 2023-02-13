@@ -29,10 +29,12 @@ export var cooldown =  0.25
 export var cooldown2 =  0.25
 var timer
 var timer2
+var danio = 40
 onready var model = get_node("Plane_modelo")
 onready var laser_scene = preload("res://src/Escenas/laser.tscn")
 onready var pivot1 = get_node("Plane_modelo/Position3D")
 onready var pivot2 = get_node("Plane_modelo/Position3D2")
+onready var torreta = get_node("res://src/Escenas/Antiaereo.tscn")
 func _ready():
 	timer = Timer.new()
 	add_child(timer)
@@ -69,7 +71,10 @@ func get_input(delta):
 	if Input.is_action_pressed("shoot"):
 		shoot()
 		shoot2()
-	
+
+func atacar():
+	torreta.take_damage(danio)
+
 func shoot():
 	if (Input.is_action_pressed("shoot") && canShoot):
 		var laser = laser_scene.instance()

@@ -3,18 +3,12 @@
 [ext_resource path="res://src/Models/antiaircraft-gun/source/Antiaircraft_gun/Antiaircraft_gun.obj" type="ArrayMesh" id=1]
 [ext_resource path="res://src/Scripts/AntiAereo.gd" type="Script" id=2]
 
-[sub_resource type="BoxShape" id=2]
-
 [sub_resource type="SphereShape" id=1]
+
+[sub_resource type="BoxShape" id=2]
 
 [node name="KinematicBody" type="KinematicBody"]
 script = ExtResource( 2 )
-
-[node name="DeteccionBala" type="CollisionShape" parent="."]
-transform = Transform( 7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 4.62886, 0 )
-shape = SubResource( 2 )
-
-[node name="AreaVida" type="Area" parent="."]
 
 [node name="AreaDeteccion" type="Area" parent="."]
 
@@ -38,6 +32,10 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -13.4346, 6.69856, -3.3912 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9393, 9.28118, -3.37211 )
 
 [node name="Timer" type="Timer" parent="."]
+
+[node name="DeteccionBala" type="CollisionShape" parent="."]
+transform = Transform( 7, 0, 0, 0, 7, 0, 0, 0, 7, 0, 4.62886, 0 )
+shape = SubResource( 2 )
 
 [connection signal="body_entered" from="AreaDeteccion" to="." method="_on_AreaDeteccion_body_entered"]
 [connection signal="body_exited" from="AreaDeteccion" to="." method="_on_AreaDeteccion_body_exited"]

@@ -4,6 +4,7 @@ extends KinematicBody
 var vida = 100
 var danioBala = 10
 var velMov = 0
+var danio = 50
 
 
 #MODELOS
@@ -99,6 +100,7 @@ func dispararTODO():
 	yield(get_tree().create_timer(1), "timeout")
 	disparar4()
 	yield(get_tree().create_timer(1), "timeout")
+	
 func disparar():
 	if onRadius && canShoot:
 		var laser = laserScene.instance()
@@ -157,8 +159,11 @@ func _cooldownfin3():
 	canShoot3 = true
 func _cooldownfin4():
 	canShoot4 = true
+	
+	
+	
 func take_damage(damage):
-	vida -= damage
+	vida -= danio
 	print("vidaMe dieroon")
 	if vida <= 0:
 		morirse()

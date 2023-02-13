@@ -1,7 +1,7 @@
 extends Area
 
 var speed = 500
-var damage = 25
+var danio = 25
 var parentName : String
 var canShoot: bool
 
@@ -13,14 +13,14 @@ func _physics_process(delta) -> void:
 	global_translate(-direccion_adelante * speed * delta)
 	
 func _on_Laser_area_entered(area: Area) -> void:
-	if area.has_method("recibirdamage") and area.name !=parentName:
-		area.recibirdamage(damage)
+	if area.has_method("take_damage") and area.name !=parentName:
+		area.take_damage(danio)
 		destroy()
 
 func _on_Laser_body_entered(body: Node) -> void:
-	if body.has_method("take_damage"): #and body.name != parentName:
+	if body.has_method("take_damage") and body.name != parentName:
 		print("te di")
-		body.recibirdamage(damage)
+		body.take_damage(danio)
 		destroy()
 
 func destroy():
