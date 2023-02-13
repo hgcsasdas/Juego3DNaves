@@ -4,7 +4,7 @@ var min_flight_speed = 30
 # Maximum airspeed
 var max_flight_speed = 300
 # Turn rate
-var turn_speed = 0.25
+var turn_speed = 0.30
 # Climb/dive rate
 var pitch_speed = 0.5
 # Wings "autolevel" speed

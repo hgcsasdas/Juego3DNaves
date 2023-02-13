@@ -24,7 +24,8 @@ func destroy() -> void:
 
 
 func _on_Laser_body_entered(body: Node) -> void:
-	if body.has_method("recibirdamage") and body.name != parentName:
+	if body.has_method("take_damage") and body.name != parentName:
+		print("siuuuu")
 		body.recibirdamage(damage)
 		queue_free()
 
