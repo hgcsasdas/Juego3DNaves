@@ -1,15 +1,12 @@
 extends KinematicBody
 
 #INTERACCIÓN
-var vida = 100
-var danioBala = 10
 var velMov = 0
-var danio = 50
-
 
 #MODELOS
 onready var antiaereo = $Antiaircraft_gun
 onready var plane = get_node("../Plane/Plane_modelo/PosicionP")
+onready var danio = get_node("../Plane")
 onready var laserScene = preload("res://src/Escenas/laserEnemigo.tscn")
 onready var pivote = get_node("Antiaircraft_gun/Position3D")
 onready var pivote2 = get_node("Antiaircraft_gun/Position3D2")
@@ -38,6 +35,10 @@ var timer2
 var timer3
 var timer4
 var timerEntre
+
+#VARIABLES DE DAÑO A ENEMIGOS Y VIDA
+var vida = 1000
+var damage = 50
 
 #SETTING TIMER
 func _ready():
@@ -74,32 +75,24 @@ func _process(delta):
 	
 	antiaereo.look_at(Vector3(playerPos.x, antiaereo.global_transform.origin.y, playerPos.z ), Vector3.UP)
 	
-	pivote.look_at(Vector3(playerPos.x + 2, playerPos.y + 2, playerPos.z), Vector3.UP)
-	pivote2.look_at(Vector3(playerPos.x + 2, playerPos.y + 2, playerPos.z), Vector3.UP)
-	pivote3.look_at(Vector3(playerPos.x + 2, playerPos.y + 2, playerPos.z), Vector3.UP)
-	pivote4.look_at(Vector3(playerPos.x + 2, playerPos.y + 2, playerPos.z), Vector3.UP)
+	pivote.look_at(Vector3(playerPos.x, playerPos.y, playerPos.z), Vector3.UP)
+	pivote2.look_at(Vector3(playerPos.x + 1, playerPos.y + 1, playerPos.z), Vector3.UP)
+	pivote3.look_at(Vector3(playerPos.x - 1, playerPos.y - 1, playerPos.z), Vector3.UP)
+	pivote4.look_at(Vector3(playerPos.x + 1, playerPos.y - 1, playerPos.z), Vector3.UP)
 	dispararTODO()
 	
-	
-	
-	
-	#apuntarJugador(delta)
-""""func verificarDistancia():
-	print("sd")
-	if """
-
 
 func apuntarJugador(delta: float) -> void:
 		antiaereo.rotation_degrees.y += delta * 100
 func dispararTODO():
 	disparar()
-	yield(get_tree().create_timer(1), "timeout")
+	yield(get_tree().create_timer(0.75), "timeout")
 	disparar2()
 	yield(get_tree().create_timer(1), "timeout")
 	disparar3()
-	yield(get_tree().create_timer(1), "timeout")
+	yield(get_tree().create_timer(1.25), "timeout")
 	disparar4()
-	yield(get_tree().create_timer(1), "timeout")
+	yield(get_tree().create_timer(1.5), "timeout")
 	
 func disparar():
 	if onRadius && canShoot:
@@ -145,12 +138,6 @@ func disparar4():
 		canShoot4 = false
 		timer4.start()
 
-func _on_Area_body_entered(body):
-	onRadius = true
-	print("entered")
-func _on_Area_body_exited(body):
-	print("exit")
-	onRadius = false
 func _cooldownfin():
 	canShoot = true
 func _cooldownfin2():
@@ -159,23 +146,27 @@ func _cooldownfin3():
 	canShoot3 = true
 func _cooldownfin4():
 	canShoot4 = true
-	
-	
-	
-func take_damage(damage):
-	vida -= danio
-	print("vidaMe dieroon")
-	if vida <= 0:
-		morirse()
-		
-func morirse():
-	queue_free()
 
 func _on_AreaDeteccion_body_exited(body):
 	onRadius = false
 	print("exit")
 
-
 func _on_AreaDeteccion_body_entered(body):
 	onRadius = true
 	print("entered")
+
+func take_damage(damage):
+	vida -= damage
+	print("Vida del anti" + vida)
+	if vida <= 0:
+		queue_free()
+
+func atacar():
+	danio.take_damage(damage)
+	vida -= damage
+	print(vida)
+	if vida<=0:
+		morir()
+
+func morir():
+	queue_free()

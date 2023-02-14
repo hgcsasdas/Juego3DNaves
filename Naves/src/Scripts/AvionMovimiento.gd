@@ -1,6 +1,6 @@
 extends KinematicBody
 # Can't fly below this speed
-var min_flight_speed = 30
+var min_flight_speed = 0
 # Maximum airspeed
 var max_flight_speed = 300
 # Turn rate
@@ -29,7 +29,8 @@ export var cooldown =  0.25
 export var cooldown2 =  0.25
 var timer
 var timer2
-var danio = 40
+var vida = 500
+var damage = 50
 onready var model = get_node("Plane_modelo")
 onready var laser_scene = preload("res://src/Escenas/laser.tscn")
 onready var pivot1 = get_node("Plane_modelo/Position3D")
@@ -41,7 +42,6 @@ func _ready():
 	timer.set_one_shot(true)
 	timer.set_wait_time(cooldown)
 	timer.connect("timeout", self, "_cooldownfin")
-	
 	
 	timer2 = Timer.new()
 	add_child(timer2)
@@ -71,9 +71,6 @@ func get_input(delta):
 	if Input.is_action_pressed("shoot"):
 		shoot()
 		shoot2()
-
-func atacar():
-	torreta.take_damage(danio)
 
 func shoot():
 	if (Input.is_action_pressed("shoot") && canShoot):
@@ -114,3 +111,16 @@ func _cooldownfin():
 
 func _cooldownfin2():
 	canShoot2 = true
+
+func take_damage(damageEnemigo):
+	vida -= damageEnemigo
+	#if vida<=0:
+	#	queue_free()
+
+
+func atacar():
+	torreta.take_damage(damage)
+	vida -= damage
+	print(vida)
+	if vida<=0:
+		queue_free()

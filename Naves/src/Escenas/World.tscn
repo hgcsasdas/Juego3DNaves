@@ -125,13 +125,13 @@ mesh = SubResource( 12 )
 
 [node name="Texture Group" type="Spatial" parent="Plane/Plane_modelo"]
 
-[node name="Position3D" type="Position3D" parent="Plane/Plane_modelo"]
-transform = Transform( 1, 0, -0.000872665, 0, 1, 0, 0.000872665, 0, 1, -4.91668, -0.15, -8.582 )
+[node name="PosicionP" type="Position3D" parent="Plane/Plane_modelo"]
 
 [node name="Position3D2" type="Position3D" parent="Plane/Plane_modelo"]
 transform = Transform( 1, 0, 0.000872665, 0, 1, 0, -0.000872665, 0, 1, 4.85304, -0.149834, -8.58218 )
 
-[node name="PosicionP" type="Position3D" parent="Plane/Plane_modelo"]
+[node name="Position3D" type="Position3D" parent="Plane/Plane_modelo"]
+transform = Transform( 1, 0, -0.000872665, 0, 1, 0, 0.000872665, 0, 1, -4.91668, -0.15, -8.582 )
 
 [node name="Camera" type="Camera" parent="Plane"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.59134, 39.1062 )
