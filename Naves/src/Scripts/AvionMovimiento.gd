@@ -2,7 +2,7 @@ extends KinematicBody
 # Can't fly below this speed
 var min_flight_speed = 0
 # Maximum airspeed
-var max_flight_speed = 300
+var max_flight_speed = 1200
 # Turn rate
 var turn_speed = 0.30
 # Climb/dive rate
