@@ -157,7 +157,7 @@ func _on_AreaDeteccion_body_entered(body):
 
 func take_damage(damage):
 	vida -= damage
-	print("Vida del anti" + vida)
+	print("Vida del anti" + str(vida))
 	if vida <= 0:
 		queue_free()
 

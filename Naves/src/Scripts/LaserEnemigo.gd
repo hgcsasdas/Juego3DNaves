@@ -34,3 +34,4 @@ func _on_LaserEnemigo_body_entered(body: Node) -> void:
 func _on_DestroyTimer_timeout():
 	destroy()
 	pass # Replace with function body.
+

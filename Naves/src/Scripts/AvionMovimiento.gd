@@ -22,6 +22,8 @@ var grounded = false
 var velocity = Vector3.ZERO
 var turn_input = 0
 var pitch_input = 0
+
+
 # cooldown de disparo
 var canShoot = true
 var canShoot2 = true
@@ -31,11 +33,16 @@ var timer
 var timer2
 var vida = 500
 var damage = 50
+
+
 onready var model = get_node("Plane_modelo")
 onready var laser_scene = preload("res://src/Escenas/laser.tscn")
 onready var pivot1 = get_node("Plane_modelo/Position3D")
 onready var pivot2 = get_node("Plane_modelo/Position3D2")
-onready var torreta = get_node("res://src/Escenas/Antiaereo.tscn")
+#hay que hacer que sea la escena, no el modelo
+#onready var torreta = get_node("../Antiaereo")
+onready var torreta = preload("res://src/Escenas/Antiaereo.tscn")
+
 func _ready():
 	timer = Timer.new()
 	add_child(timer)
@@ -114,8 +121,9 @@ func _cooldownfin2():
 
 func take_damage(damageEnemigo):
 	vida -= damageEnemigo
-	#if vida<=0:
-	#	queue_free()
+	print(vida)
+	if vida<=0:
+		queue_free()
 
 
 func atacar():

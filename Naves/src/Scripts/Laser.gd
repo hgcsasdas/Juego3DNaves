@@ -5,7 +5,7 @@ var damage = 25
 var parentName : String
 var canShoot: bool
 
-onready var danio = get_node("../antia")
+onready var danio = get_node("../Antiaereo")
 
 var timer
 
@@ -20,7 +20,7 @@ func _on_Laser_area_entered(area: Area) -> void:
 
 func _on_Laser_body_entered(body: Node) -> void:
 	if body.has_method("take_damage") and body.name !=parentName:
-		atacar()
+		danio.take_damage(damage)
 		destroy()
 
 func destroy():
@@ -29,6 +29,3 @@ func destroy():
 func _on_DestroyTimer_timeout():
 	destroy()
 	pass # Replace with function body.
-
-func atacar():
-	danio.take_damage(damage)

@@ -172,5 +172,4 @@ shader_params/u_depth_blending = true
 shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
-[node name="KinematicBody" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1.24503, 1.90144, 1.1395 )
+[node name="Antiaereo" parent="." instance=ExtResource( 3 )]
