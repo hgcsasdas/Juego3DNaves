@@ -37,7 +37,7 @@ var timer4
 var timerEntre
 
 #VARIABLES DE DAÑO A ENEMIGOS Y VIDA
-var vida = 1000
+var vida = 600
 var damage = 50
 
 #SETTING TIMER

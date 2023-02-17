@@ -1,7 +1,8 @@
 extends Area
 
-var speed = 500
-var damage = 25
+var speed = 1500
+var damage = 50
+
 var parentName : String
 var canShoot: bool
 

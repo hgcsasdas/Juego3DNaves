@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://src/Scripts/AvionMovimiento.gd" type="Script" id=1]
 [ext_resource path="res://src/Models/Z-95/Z-95_DIFF.png" type="Texture" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Textures/World_slot0_albedo_bump.packed_tex" type="Texture" id=8]
 [ext_resource path="res://Textures/World_slot0_normal_roughness.packed_tex" type="Texture" id=9]
 [ext_resource path="res://src/Escenas/World_slot0_normal_roughness.packed_tex" type="Texture" id=10]
+[ext_resource path="res://terrain2/data.hterrain" type="Resource" id=11]
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_name = "Z-95_Main"
@@ -98,6 +99,11 @@ mode = 0
 textures = [ [ ExtResource( 8 ) ], [ ExtResource( 9 ) ] ]
 
 [sub_resource type="Resource" id=15]
+script = ExtResource( 6 )
+mode = 0
+textures = [ [ ExtResource( 4 ) ], [ ExtResource( 10 ) ] ]
+
+[sub_resource type="Resource" id=16]
 script = ExtResource( 6 )
 mode = 0
 textures = [ [ ExtResource( 4 ) ], [ ExtResource( 10 ) ] ]
@@ -202,4 +208,27 @@ shader_params/u_depth_blending = true
 shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
+[node name="terrenopeli2" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1188.63, 0, -3620 )
+
+[node name="HTerrain" type="Spatial" parent="terrenopeli2"]
+transform = Transform( 5, 0, 0, 0, 6.647, 0, 0, 0, 23, -5.146, -1, -0.391 )
+script = ExtResource( 7 )
+lod_scale = 2.0
+_terrain_data = ExtResource( 11 )
+chunk_size = 32
+collision_enabled = true
+collision_layer = 1
+collision_mask = 1
+shader_type = "Classic4Lite"
+custom_shader = null
+custom_globalmap_shader = null
+texture_set = SubResource( 16 )
+render_layers = 1
+shader_params/u_ground_uv_scale = 20
+shader_params/u_depth_blending = true
+shader_params/u_triplanar = false
+shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
+
 [node name="Antiaereo" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.74327, -1.52588e-05, -1040.42 )
