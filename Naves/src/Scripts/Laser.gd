@@ -6,8 +6,7 @@ var damage = 50
 var parentName : String
 var canShoot: bool
 
-onready var danio = get_node("../Antiaereo")
-
+onready var danio = get_node("../../Escenas/Antiaereo.tscn")
 var timer
 
 # Called when the node enters the scene tree for the first time.

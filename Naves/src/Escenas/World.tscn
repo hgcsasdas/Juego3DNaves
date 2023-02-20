@@ -115,7 +115,6 @@ mode = 0
 textures = [ [ ExtResource( 4 ) ], [ ExtResource( 10 ) ] ]
 
 [node name="World" type="Spatial"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10, 0, 0 )
 
 [node name="DirectionalLight" type="DirectionalLight" parent="."]
 transform = Transform( 0.10389, -0.207097, -0.972789, 0.0546378, -0.975416, 0.213492, -0.993087, -0.0753307, -0.0900206, 0, 245.486, 328.743 )
@@ -216,10 +215,10 @@ shader_params/u_depth_blending = true
 shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
-[node name="terrenopeli2" type="Spatial" parent="."]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -1188.63, 0, -3620 )
+[node name="terrenopeli2" type="Spatial" parent="terrenopeli"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -2100.93 )
 
-[node name="HTerrain" type="Spatial" parent="terrenopeli2"]
+[node name="HTerrain" type="Spatial" parent="terrenopeli/terrenopeli2"]
 transform = Transform( 5, 0, 0, 0, 6.647, 0, 0, 0, 23, -5.146, -1, -0.391 )
 script = ExtResource( 7 )
 lod_scale = 2.0
@@ -260,5 +259,47 @@ shader_params/u_depth_blending = true
 shader_params/u_triplanar = false
 shader_params/u_tile_reduction = Plane( 0, 0, 0, 0 )
 
-[node name="Antiaereo" parent="." instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.74327, -1.52588e-05, -1040.42 )
+[node name="nada" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 3.743, 0, -1040.42 )
+
+[node name="antia" parent="nada" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 298.223, 293, 14874 )
+
+[node name="antia2" parent="nada" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -326.777, 293, 14787 )
+
+[node name="antia3" parent="nada" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -366.777, 422, 13557 )
+
+[node name="antia4" parent="nada" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 363.223, 422, 13557 )
+
+[node name="antia5" parent="nada" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 283.223, 415, 12190 )
+
+[node name="antia6" parent="nada" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -524.777, 633, 11527 )
+
+[node name="antia7" parent="nada" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -481.777, 407, 9753 )
+
+[node name="antia8" parent="nada" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 407.223, 505, 9753 )
+
+[node name="antia9" parent="nada" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -245.777, 368, 8669 )
+
+[node name="antia10" parent="nada" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 615.223, 374, 8002 )
+
+[node name="antia11" parent="nada" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -567.777, 378, 7167 )
+
+[node name="antia12" parent="nada" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 49.223, 419, 6341 )
+
+[node name="antia13" parent="nada" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -443.777, 495, 5299 )
+
+[node name="antia14" parent="nada" instance=ExtResource( 3 )]
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 418.223, 481, 3997 )

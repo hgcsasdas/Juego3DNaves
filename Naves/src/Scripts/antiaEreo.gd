@@ -5,8 +5,8 @@ var velMov = 0
 
 #MODELOS
 onready var antiaereo = $Antiaircraft_gun
-onready var plane = get_node("../Plane/Plane_modelo/PosicionP")
-onready var danio = get_node("../Plane")
+onready var plane = get_node("../../Plane/Plane_modelo/PosicionP")
+onready var danio = get_node("../../Plane")
 onready var laserScene = preload("res://src/Escenas/laserEnemigo.tscn")
 onready var pivote = get_node("Antiaircraft_gun/Position3D")
 onready var pivote2 = get_node("Antiaircraft_gun/Position3D2")
@@ -76,9 +76,9 @@ func _process(delta):
 	antiaereo.look_at(Vector3(playerPos.x, antiaereo.global_transform.origin.y, playerPos.z ), Vector3.UP)
 	
 	pivote.look_at(Vector3(playerPos.x, playerPos.y, playerPos.z), Vector3.UP)
-	pivote2.look_at(Vector3(playerPos.x + 1, playerPos.y + 1, playerPos.z), Vector3.UP)
-	pivote3.look_at(Vector3(playerPos.x - 1, playerPos.y - 1, playerPos.z), Vector3.UP)
-	pivote4.look_at(Vector3(playerPos.x + 1, playerPos.y - 1, playerPos.z), Vector3.UP)
+	pivote2.look_at(Vector3(playerPos.x + 1, playerPos.y + 1, playerPos.z-10), Vector3.UP)
+	pivote3.look_at(Vector3(playerPos.x - 1, playerPos.y - 1, playerPos.z-8), Vector3.UP)
+	pivote4.look_at(Vector3(playerPos.x + 1, playerPos.y - 1, playerPos.z-12), Vector3.UP)
 	dispararTODO()
 	
 
