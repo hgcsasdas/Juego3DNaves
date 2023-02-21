@@ -1,0 +1,20 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://src/Models/Container_v2_L2.123cfad69282-d455-4551-a996-7e6c7b178e26/12281_Container_v2_L2.obj" type="ArrayMesh" id=1]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 0.206, 0.206, 0.206 )
+
+[node name="container" type="Spatial"]
+transform = Transform( 0.2, 0, 0, 0, 0.2, 0, 0, 0, 0.2, 0, 0, 0 )
+
+[node name="KinematicBody" type="KinematicBody" parent="."]
+
+[node name="12281_Container_v2_L2" type="MeshInstance" parent="KinematicBody"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -59, 2, -71 )
+mesh = ExtResource( 1 )
+skeleton = NodePath("../..")
+
+[node name="CollisionShape" type="CollisionShape" parent="KinematicBody"]
+transform = Transform( 1757.09, 0, 0, 0, 722.088, 0, 0, 0, 715.761, -61, 15.861, 75 )
+shape = SubResource( 1 )

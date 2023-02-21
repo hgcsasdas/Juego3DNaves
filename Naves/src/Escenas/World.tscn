@@ -1,4 +1,4 @@
-[gd_scene load_steps=25 format=2]
+[gd_scene load_steps=27 format=2]
 
 [ext_resource path="res://src/Scripts/AvionMovimiento.gd" type="Script" id=1]
 [ext_resource path="res://src/Models/Z-95/Z-95_DIFF.png" type="Texture" id=2]
@@ -12,6 +12,8 @@
 [ext_resource path="res://src/Escenas/World_slot0_normal_roughness.packed_tex" type="Texture" id=10]
 [ext_resource path="res://terrain2/data.hterrain" type="Resource" id=11]
 [ext_resource path="res://terrain3/data.hterrain" type="Resource" id=12]
+[ext_resource path="res://src/Escenas/objetivo.tscn" type="PackedScene" id=13]
+[ext_resource path="res://src/Escenas/explosivo.tscn" type="PackedScene" id=14]
 
 [sub_resource type="SpatialMaterial" id=1]
 resource_name = "Z-95_Main"
@@ -120,7 +122,7 @@ textures = [ [ ExtResource( 4 ) ], [ ExtResource( 10 ) ] ]
 transform = Transform( 0.10389, -0.207097, -0.972789, 0.0546378, -0.975416, 0.213492, -0.993087, -0.0753307, -0.0900206, 0, 245.486, 328.743 )
 
 [node name="Plane" type="KinematicBody" parent="." groups=["Player"]]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 157, 15708 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 157, -1000 )
 script = ExtResource( 1 )
 
 [node name="Plane_modelo" type="Spatial" parent="Plane"]
@@ -302,4 +304,43 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 49.223, 419, 6341 )
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, -443.777, 495, 5299 )
 
 [node name="antia14" parent="nada" instance=ExtResource( 3 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 418.223, 481, 3997 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 434.223, 474, 3997 )
+
+[node name="objetivo" type="Spatial" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 30, 0.355, 0 )
+
+[node name="container" parent="objetivo" instance=ExtResource( 13 )]
+transform = Transform( 0.0353553, 0.0353553, 1.85452e-09, 0, -2.18557e-09, 0.06, 0.0353553, -0.0353553, -1.85452e-09, 52, 4, -1137 )
+
+[node name="container2" parent="objetivo" instance=ExtResource( 13 )]
+transform = Transform( 0.025, 0.0433013, 2.27131e-09, 0, -2.18557e-09, 0.06, 0.0433013, -0.025, -1.31134e-09, 67.326, 4, -1151.23 )
+
+[node name="container3" parent="objetivo" instance=ExtResource( 13 )]
+transform = Transform( -0.025, 0.0433013, 2.27131e-09, 0, -2.18557e-09, 0.06, 0.0433013, 0.025, 1.31134e-09, 32.6439, 4, -1164.75 )
+
+[node name="container4" parent="objetivo" instance=ExtResource( 13 )]
+transform = Transform( 0.025, 0.0433013, 2.27131e-09, 0, -2.18557e-09, 0.06, 0.0433013, -0.025, -1.31134e-09, 49.433, 21.527, -1150.86 )
+
+[node name="container5" parent="objetivo" instance=ExtResource( 13 )]
+transform = Transform( 0.0353553, 0.0353553, 1.85452e-09, 0, -2.18557e-09, 0.06, 0.0353553, -0.0353553, -1.85452e-09, 87.6414, 4, -1158.75 )
+
+[node name="container6" parent="objetivo" instance=ExtResource( 13 )]
+transform = Transform( 0.05, -5.96046e-09, -3.12648e-16, 0, -2.18557e-09, 0.06, -5.96046e-09, -0.05, -2.62268e-09, 81.846, 21.527, -1160.31 )
+
+[node name="container7" parent="objetivo" instance=ExtResource( 13 )]
+transform = Transform( 0.0482963, 0.0129409, 6.788e-10, 0, -2.18557e-09, 0.06, 0.0129409, -0.0482963, -2.53332e-09, 61.8936, 4, -1187.67 )
+
+[node name="container8" parent="objetivo" instance=ExtResource( 13 )]
+transform = Transform( 0.0482963, 0.0129409, 6.788e-10, 0, -2.18557e-09, 0.06, 0.0129409, -0.0482963, -2.53332e-09, 66.703, 21.527, -1179.1 )
+
+[node name="container9" parent="objetivo" instance=ExtResource( 13 )]
+transform = Transform( -0.025, 0.0433013, 2.27131e-09, 0, -2.18557e-09, 0.06, 0.0433013, 0.025, 1.31134e-09, 60.326, 39.051, -1157.9 )
+
+[node name="explosivo" parent="objetivo" instance=ExtResource( 14 )]
+transform = Transform( -0.724444, -0.194114, -8.485e-09, 0, -3.27835e-08, 0.75, -0.194114, 0.724444, 3.16665e-08, 56.5092, 17.135, -1131.17 )
+
+[node name="explosivo2" parent="objetivo" instance=ExtResource( 14 )]
+transform = Transform( -0.649519, 1.38226e-07, -0.375, -1.13247e-07, -0.75, -8.03029e-08, -0.375, -1.2921e-08, 0.649519, 54.2266, 45.662, -1144.58 )
+
+[node name="explosivo3" parent="objetivo" instance=ExtResource( 14 )]
+transform = Transform( -0.75, 1.13247e-07, 1.11759e-07, -1.13247e-07, -0.75, -4.63629e-08, 1.11759e-07, -4.63629e-08, 0.75, 81.535, 28.135, -1153.86 )
