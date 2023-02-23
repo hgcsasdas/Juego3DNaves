@@ -23,11 +23,11 @@ func reci(damage):
 		explotar()
 
 func _on_Area_area_entered(area):
+	reci(damage)
 	pass # Replace with function body.
 
 
 func _on_Area_body_entered(body):
-	reci(damage)
 	pass # Replace with function body.
 
 func explotar():
