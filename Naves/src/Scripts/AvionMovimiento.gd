@@ -123,8 +123,7 @@ func take_damage(damageEnemigo):
 	vida -= damageEnemigo
 	print(vida)
 	if vida<=0:
-		queue_free()
-
+		get_tree().change_scene("res://src/Menu/Menu.tscn")
 
 func atacar():
 	torreta.take_damage(damage)
@@ -132,3 +131,7 @@ func atacar():
 	print(vida)
 	if vida<=0:
 		queue_free()
+
+
+func _on_LimiteAltura_body_entered(body):
+	get_tree().change_scene("res://src/Menu/Menu.tscn")

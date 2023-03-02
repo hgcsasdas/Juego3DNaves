@@ -149,11 +149,11 @@ func _cooldownfin4():
 
 func _on_AreaDeteccion_body_exited(body):
 	onRadius = false
-	print("exit")
+
 
 func _on_AreaDeteccion_body_entered(body):
 	onRadius = true
-	print("entered")
+
 
 func take_damage(damage):
 	vida -= damage

@@ -21,11 +21,10 @@ rect_scale = Vector2( 4.6345, 2.82177 )
 custom_constants/separation = 23
 
 [node name="Jugar" type="Button" parent="VBoxBotones"]
-modulate = Color( 0, 0, 0, 1 )
 margin_right = 68.0
 margin_bottom = 20.0
-custom_colors/font_color_disabled = Color( 0, 0, 0, 1 )
-custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.0823529, 0.494118, 0.894118, 1 )
 custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
 text = "Jugar"
 flat = true
@@ -34,6 +33,7 @@ flat = true
 margin_top = 43.0
 margin_right = 68.0
 margin_bottom = 63.0
+custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 text = "Salir"
 flat = true
 
