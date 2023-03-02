@@ -227,5 +227,5 @@ shape = SubResource( 16 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 56.264, 800, 1119.81 )
 
 [node name="CollisionShape" type="CollisionShape" parent="LimiteAltura"]
-transform = Transform( 1200, 0, 0, 0, 1, 0, 0, 0, 2000, 1351.36, 0, 686.146 )
+transform = Transform( 2000, 0, 0, 0, 1, 0, 0, 0, 2000, 1351.36, 0, 686.146 )
 shape = SubResource( 18 )
