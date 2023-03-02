@@ -15,13 +15,13 @@
 [ext_resource path="res://src/Escenas/objetivo.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/Escenas/explosivo.tscn" type="PackedScene" id=14]
 
-[sub_resource type="SpatialMaterial" id=1]
+[sub_resource type="SpatialMaterial" id=9]
 resource_name = "Z-95_Main"
 albedo_color = Color( 0.6, 0.6, 0.6, 1 )
 albedo_texture = ExtResource( 2 )
 metallic = 1.0
 
-[sub_resource type="ArrayMesh" id=9]
+[sub_resource type="ArrayMesh" id=19]
 blend_shape_mode = 0
 surfaces/0 = {
 "aabb": AABB( -1.4814, -1.59918, -7.54541, 2.9628, 3.55484, 16.6407 ),
@@ -30,7 +30,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194743,
 "index_count": 3804,
-"material": SubResource( 1 ),
+"material": SubResource( 9 ),
 "name": "Z-95_Main",
 "primitive": 4,
 "skeleton_aabb": [  ],
@@ -46,7 +46,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194743,
 "index_count": 2514,
-"material": SubResource( 1 ),
+"material": SubResource( 9 ),
 "name": "Z-95_Main",
 "primitive": 4,
 "skeleton_aabb": [  ],
@@ -62,14 +62,14 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194743,
 "index_count": 2514,
-"material": SubResource( 1 ),
+"material": SubResource( 9 ),
 "name": "Z-95_Main",
 "primitive": 4,
 "skeleton_aabb": [  ],
 "vertex_count": 1310
 }
 
-[sub_resource type="SpatialMaterial" id=5]
+[sub_resource type="SpatialMaterial" id=13]
 resource_name = "Z-95_MainColor"
 albedo_color = Color( 0.468354, 0.0623879, 0.069014, 1 )
 metallic = 1.0
@@ -83,7 +83,7 @@ surfaces/0 = {
 "blend_shape_data": [  ],
 "format": 2194743,
 "index_count": 60,
-"material": SubResource( 5 ),
+"material": SubResource( 13 ),
 "name": "Z-95_MainColor",
 "primitive": 4,
 "skeleton_aabb": [  ],
@@ -96,7 +96,7 @@ height = 0.595109
 [sub_resource type="BoxShape" id=14]
 extents = Vector3( 0.204828, 0.15108, 0.190024 )
 
-[sub_resource type="Resource" id=13]
+[sub_resource type="Resource" id=20]
 script = ExtResource( 6 )
 mode = 0
 textures = [ [ ExtResource( 8 ) ], [ ExtResource( 9 ) ] ]
@@ -132,7 +132,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.541, -10.686 )
 
 [node name="MainHull" type="MeshInstance" parent="Plane/Plane_modelo"]
 transform = Transform( -0.654603, 0, -5.72272e-08, 0, 0.654603, 0, 5.72272e-08, 0, -0.654603, 0, 0, 0 )
-mesh = SubResource( 9 )
+mesh = SubResource( 19 )
 
 [node name="LeftWing" type="MeshInstance" parent="Plane/Plane_modelo"]
 transform = Transform( -0.654603, 0, -5.72272e-08, 0, 0.654603, 0, 5.72272e-08, 0, -0.654603, 0, 0, 0 )
@@ -190,7 +190,7 @@ collision_mask = 1
 shader_type = "Classic4Lite"
 custom_shader = null
 custom_globalmap_shader = null
-texture_set = SubResource( 13 )
+texture_set = SubResource( 20 )
 render_layers = 1
 shader_params/u_ground_uv_scale = 20
 shader_params/u_depth_blending = true
