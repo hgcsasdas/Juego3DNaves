@@ -26,13 +26,23 @@ margin_bottom = 20.0
 custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.0823529, 0.494118, 0.894118, 1 )
 custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
-text = "Jugar"
+text = "Mapa1"
 flat = true
 
-[node name="Salir" type="Button" parent="VBoxBotones"]
+[node name="mapa2" type="Button" parent="VBoxBotones"]
 margin_top = 43.0
 margin_right = 68.0
 margin_bottom = 63.0
+custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
+custom_colors/font_color_hover = Color( 0.0823529, 0.494118, 0.894118, 1 )
+custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
+text = "Mapa2"
+flat = true
+
+[node name="Salir" type="Button" parent="VBoxBotones"]
+margin_top = 86.0
+margin_right = 68.0
+margin_bottom = 106.0
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 text = "Salir"
 flat = true
@@ -40,4 +50,5 @@ flat = true
 [node name="ParallaxBackground" parent="." instance=ExtResource( 1 )]
 
 [connection signal="pressed" from="VBoxBotones/Jugar" to="." method="_on_Jugar_pressed"]
+[connection signal="pressed" from="VBoxBotones/mapa2" to="." method="_on_mapa2_pressed"]
 [connection signal="pressed" from="VBoxBotones/Salir" to="." method="_on_Salir_pressed"]
