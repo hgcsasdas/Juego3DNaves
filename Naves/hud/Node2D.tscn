@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://barHorizontal_red_mid 200.png" type="Texture" id=1]
+[ext_resource path="res://hud/Node2D.gd" type="Script" id=2]
+
+[node name="Node2D" type="Node2D"]
+script = ExtResource( 2 )
+
+[node name="HealthBar" type="TextureProgress" parent="."]
+margin_left = 1.0
+margin_top = -1.0
+margin_right = 201.0
+margin_bottom = 25.0
+min_value = 100.0
+value = 100.0
+texture_progress = ExtResource( 1 )
