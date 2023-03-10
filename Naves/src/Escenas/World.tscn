@@ -1,4 +1,4 @@
-[gd_scene load_steps=28 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://src/Scripts/AvionMovimiento.gd" type="Script" id=1]
 [ext_resource path="res://src/Models/Z-95/Z-95_DIFF.png" type="Texture" id=2]
@@ -14,6 +14,7 @@
 [ext_resource path="res://terrain3/data.hterrain" type="Resource" id=12]
 [ext_resource path="res://src/Escenas/objetivo.tscn" type="PackedScene" id=13]
 [ext_resource path="res://src/Escenas/explosivo.tscn" type="PackedScene" id=14]
+[ext_resource path="res://src/Escenas/hud.tscn" type="PackedScene" id=15]
 
 [sub_resource type="SpatialMaterial" id=9]
 resource_name = "Z-95_Main"
@@ -169,6 +170,9 @@ shape = SubResource( 8 )
 [node name="Ala" type="CollisionShape" parent="Plane"]
 transform = Transform( 24.2142, 0, 0, 0, 0.945499, 0, 0, 0, 4.61022, -0.0115237, -0.664422, -7.4144 )
 shape = SubResource( 14 )
+
+[node name="Barra3d" parent="Plane" instance=ExtResource( 15 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.62405, 0 )
 
 [node name="terreno" type="Spatial" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 4000, 0, -1519.07 )
