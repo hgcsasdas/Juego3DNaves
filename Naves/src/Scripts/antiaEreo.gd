@@ -81,9 +81,6 @@ func _process(delta):
 	pivote4.look_at(Vector3(playerPos.x + 1, playerPos.y - 1, playerPos.z-12), Vector3.UP)
 	dispararTODO()
 	
-
-func apuntarJugador(delta: float) -> void:
-		antiaereo.rotation_degrees.y += delta * 100
 func dispararTODO():
 	disparar()
 	yield(get_tree().create_timer(0.75), "timeout")
