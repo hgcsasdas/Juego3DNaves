@@ -1,4 +1,6 @@
 # Juego3DNaves
+# Instrucciones de ejecutar
+Crear un hud para el avion que ya esta hecho y que cada vez que le de un laser pierda 5 de vida de 100 que tiene, el hud tiene que quedar en la parte superior derecha
 
 # TIME LINE
 

@@ -2,9 +2,9 @@ extends KinematicBody
 # Can't fly below this speed
 var min_flight_speed = 0
 # Maximum airspeed
-var max_flight_speed = 200
+var max_flight_speed = 1200
 # Turn rate
-var turn_speed = 0.25
+var turn_speed = 0.30
 # Climb/dive rate
 var pitch_speed = 0.5
 # Wings "autolevel" speed
@@ -14,14 +14,16 @@ var throttle_delta = 30
 # Acceleration/deceleration
 var acceleration = 100.0
 # Current speed
-var forward_speed = 0
+var forward_speed = 30
 # Throttle input speed
-var target_speed = 0
+var target_speed = 30
 # Lets us change behavior when grounded
 var grounded = false
 var velocity = Vector3.ZERO
 var turn_input = 0
 var pitch_input = 0
+
+
 # cooldown de disparo
 var canShoot = true
 var canShoot2 = true
@@ -29,17 +31,24 @@ export var cooldown =  0.25
 export var cooldown2 =  0.25
 var timer
 var timer2
+var vida = 500
+var damage = 50
+
+
 onready var model = get_node("Plane_modelo")
 onready var laser_scene = preload("res://src/Escenas/laser.tscn")
 onready var pivot1 = get_node("Plane_modelo/Position3D")
 onready var pivot2 = get_node("Plane_modelo/Position3D2")
+#hay que hacer que sea la escena, no el modelo
+#onready var torreta = get_node("../Antiaereo")
+onready var torreta = preload("res://src/Escenas/Antiaereo.tscn")
+
 func _ready():
 	timer = Timer.new()
 	add_child(timer)
 	timer.set_one_shot(true)
 	timer.set_wait_time(cooldown)
 	timer.connect("timeout", self, "_cooldownfin")
-	
 	
 	timer2 = Timer.new()
 	add_child(timer2)
@@ -69,7 +78,7 @@ func get_input(delta):
 	if Input.is_action_pressed("shoot"):
 		shoot()
 		shoot2()
-	
+
 func shoot():
 	if (Input.is_action_pressed("shoot") && canShoot):
 		var laser = laser_scene.instance()
@@ -102,10 +111,27 @@ func _physics_process(delta):
 	# Movement is always forward
 	velocity = -transform.basis.z * forward_speed
 	velocity = move_and_slide(velocity, Vector3.UP)
-	print(forward_speed)
+	#print(forward_speed)
 
 func _cooldownfin():
 	canShoot = true
 
 func _cooldownfin2():
 	canShoot2 = true
+
+func take_damage(damageEnemigo):
+	vida -= damageEnemigo
+	print(vida)
+	if vida<=0:
+		get_tree().change_scene("res://src/Menu/Menu.tscn")
+
+func atacar():
+	torreta.take_damage(damage)
+	vida -= damage
+	print(vida)
+	if vida<=0:
+		queue_free()
+
+
+func _on_LimiteAltura_body_entered(body):
+	get_tree().change_scene("res://src/Menu/Menu.tscn")

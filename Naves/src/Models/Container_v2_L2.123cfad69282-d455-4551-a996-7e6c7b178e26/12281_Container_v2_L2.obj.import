@@ -1,0 +1,20 @@
+[remap]
+
+importer="wavefront_obj"
+type="Mesh"
+path="res://.import/12281_Container_v2_L2.obj-9106721fac5c8f50b86eb6ae70ad5ead.mesh"
+
+[deps]
+
+files=[ "res://.import/12281_Container_v2_L2.obj-9106721fac5c8f50b86eb6ae70ad5ead.mesh" ]
+
+source_file="res://src/Models/Container_v2_L2.123cfad69282-d455-4551-a996-7e6c7b178e26/12281_Container_v2_L2.obj"
+dest_files=[ "res://.import/12281_Container_v2_L2.obj-9106721fac5c8f50b86eb6ae70ad5ead.mesh", "res://.import/12281_Container_v2_L2.obj-9106721fac5c8f50b86eb6ae70ad5ead.mesh" ]
+
+[params]
+
+generate_tangents=true
+scale_mesh=Vector3( 1, 1, 1 )
+offset_mesh=Vector3( 0, 0, 0 )
+octahedral_compression=true
+optimize_mesh_flags=4286
