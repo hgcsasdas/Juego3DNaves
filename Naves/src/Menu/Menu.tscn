@@ -9,6 +9,8 @@ anchor_bottom = 1.0
 script = ExtResource( 2 )
 
 [node name="VBoxBotones" type="VBoxContainer" parent="."]
+modulate = Color( 0.992157, 0.992157, 0.992157, 1 )
+self_modulate = Color( 0.568627, 0.027451, 0.027451, 1 )
 anchor_left = 0.37
 anchor_top = 0.404
 anchor_right = 0.396
@@ -18,7 +20,7 @@ margin_top = -22.0
 margin_right = 21.0
 margin_bottom = 22.0
 rect_scale = Vector2( 4.6345, 2.82177 )
-custom_constants/separation = 23
+custom_constants/separation = 25
 
 [node name="Jugar" type="Button" parent="VBoxBotones"]
 margin_right = 68.0
@@ -30,9 +32,9 @@ text = "Mapa1"
 flat = true
 
 [node name="mapa2" type="Button" parent="VBoxBotones"]
-margin_top = 43.0
+margin_top = 45.0
 margin_right = 68.0
-margin_bottom = 63.0
+margin_bottom = 65.0
 custom_colors/font_color_disabled = Color( 1, 1, 1, 1 )
 custom_colors/font_color_hover = Color( 0.0823529, 0.494118, 0.894118, 1 )
 custom_colors/font_color_pressed = Color( 1, 1, 1, 1 )
@@ -40,9 +42,9 @@ text = "Mapa2"
 flat = true
 
 [node name="Salir" type="Button" parent="VBoxBotones"]
-margin_top = 86.0
+margin_top = 90.0
 margin_right = 68.0
-margin_bottom = 106.0
+margin_bottom = 110.0
 custom_colors/font_color_hover = Color( 1, 0, 0, 1 )
 text = "Salir"
 flat = true

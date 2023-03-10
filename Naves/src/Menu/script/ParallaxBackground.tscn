@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=2]
 
-[ext_resource path="res://src/Menu/fomdo.jpg" type="Texture" id=1]
+[ext_resource path="res://src/Menu/X-wing_SWGTCG.webp" type="Texture" id=1]
 [ext_resource path="res://src/Menu/script/ParallaxBackground.gd" type="Script" id=2]
 
 [node name="ParallaxBackground" type="ParallaxBackground"]
@@ -10,8 +10,8 @@ script = ExtResource( 2 )
 motion_mirroring = Vector2( 1920, 1080 )
 
 [node name="Sprite" type="Sprite" parent="ParallaxLayer"]
-position = Vector2( 963, 536 )
-scale = Vector2( 0.964, 1.088 )
+position = Vector2( 1224, 533 )
+scale = Vector2( 1.225, 1.088 )
 texture = ExtResource( 1 )
 region_enabled = true
 region_rect = Rect2( 0, 0, 2000, 1000 )
