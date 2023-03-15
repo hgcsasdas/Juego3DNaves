@@ -119,12 +119,12 @@ func _cooldownfin():
 func _cooldownfin2():
 	canShoot2 = true
 
-func take_damage(damageEnemigo, update_):
+func take_damage(damageEnemigo):
 	vida -= damageEnemigo
-	$Sprite3D.update_(vida)
+	#$Sprite3D.update_(vida)
 	print(vida)
 	if vida<=0:
-		get_tree().change_scene("res://src/Menu/Menu.tscn")
+		get_tree().change_scene("res://src/Menu/Perder.tscn")
 
 func atacar():
 	torreta.take_damage(damage)
