@@ -29,7 +29,7 @@ func _on_Laser_body_entered(body) -> void:
 		#torreta.take_damage(damage)
 		destroy()
 
-	if body.has_method("reci") and body.name != parentName:
+	elif body.has_method("reci") and body.name != parentName:
 		print("entré1")
 		body.reci(damage)
 		#explosivo.reci(damage)
