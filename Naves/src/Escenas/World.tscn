@@ -351,6 +351,9 @@ transform = Transform( -0.649519, 1.38226e-07, -0.375, -1.13247e-07, -0.75, -8.0
 [node name="explosivo3" parent="objetivo" instance=ExtResource( 14 )]
 transform = Transform( -0.75, 1.13247e-07, 1.11759e-07, -1.13247e-07, -0.75, -4.63629e-08, 1.11759e-07, -4.63629e-08, 0.75, 81.535, 28.135, -1153.86 )
 
+[node name="explosionContainer" type="Position3D" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 96.703, 4.355, -1187.67 )
+
 [node name="LimiteAltura" type="Area" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 20, 0, 700, 15550 )
 

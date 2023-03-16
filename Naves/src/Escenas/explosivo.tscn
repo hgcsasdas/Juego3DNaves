@@ -27,7 +27,7 @@ material/0 = SubResource( 1 )
 [node name="Area" type="Area" parent="KinematicBody"]
 
 [node name="CollisionShape" type="CollisionShape" parent="KinematicBody/Area"]
-transform = Transform( 18, 0, 0, 0, 9.018, 0, 0, 0, 6.735, 0, 0, 1.389 )
+transform = Transform( 25.257, 0, 0, 0, 25, 0, 0, 0, 25, 0, 0, 1.389 )
 shape = SubResource( 2 )
 
 [connection signal="area_entered" from="KinematicBody/Area" to="." method="_on_Area_area_entered"]
